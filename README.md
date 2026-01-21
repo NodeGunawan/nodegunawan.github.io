@@ -26,4 +26,3 @@ namun konsisten sebagai jejak waktu dan konteks.
 
 This account is not a portfolio.  
 It is a node.
-
