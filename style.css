@@ -1,4 +1,3 @@
-<style>
 body {
   background-color: #111;
   color: #fff;
@@ -27,7 +26,7 @@ nav a:hover {
 }
 
 .card {
-  background: background: rgba(20, 20, 20, 0.8);
+  background: rgba(20, 20, 20, 0.8); /* FIXED */
   backdrop-filter: blur(2px);
   border-radius: 16px;
   max-width: 720px;
@@ -91,7 +90,6 @@ ul {
 
 blockquote {
   border-left: 4px solid #25D366;
-  padding-left: 12px;
   font-style: italic;
   background-color: #222;
   border-radius: 8px;
@@ -104,20 +102,19 @@ blockquote {
   color: #aaa;
   text-align: center;
 }
+
 /* =========================
    SPIDER WEB BACKGROUND
-   (NO LAYOUT CHANGE)
 ========================= */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
 
   background-image:
-    /* garis radial */
     repeating-conic-gradient(
       from 0deg,
       rgba(0,255,255,0.08) 0deg,
@@ -125,7 +122,6 @@ body::before {
       transparent 1deg,
       transparent 18deg
     ),
-    /* lingkaran konsentris */
     repeating-radial-gradient(
       circle at center,
       rgba(0,255,255,0.12) 0px,
@@ -142,36 +138,25 @@ body::before {
   to { transform: rotate(360deg); }
 }
 
-/* ===== BACKGROUND IMAGE LAYER ===== */
+/* =========================
+   BACKGROUND IMAGE LAYER
+========================= */
 
-body::marker {
-  content: "";
-}
-
-body::selection {
-  background: #00ffff33;
-}
-
-/* Image layer (paling belakang) */
-body::before {
-  /* tidak diubah */
-}
-
-/* Tambahan layer baru */
-body::after {
-  /* tidak diubah */
-}
-
-/* Layer gambar baru */
 html::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -4;
+  z-index: -3;
 
   background: url("ai-blog-960x536.jpg") center/cover no-repeat;
-  opacity: 0.15; /* bikin tipis */
+  opacity: 0.15;
   filter: blur(2px);
 }
- 
-</style>
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+::selection {
+  background: #00ffff33;
+}
