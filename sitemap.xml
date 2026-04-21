@@ -1,54 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- NODE UTAMA -->
   <url>
     <loc>https://nodegunawan.github.io/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- IDENTITAS -->
   <url>
     <loc>https://nodegunawan.github.io/about.html</loc>
     <lastmod>2026-04-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- KERANGKA -->
+  <url>
+    <loc>https://nodegunawan.github.io/ekosistem-digital/index.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- DOMAIN AUTHORITY (LEVEL 2) -->
+  <url>
+    <loc>https://nodegunawan.github.io/digital-marketing/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://nodegunawan.github.io/ekosistem-digital/index.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <loc>https://nodegunawan.github.io/jasa-foto/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://nodegunawan.github.io/komunitas-fotografi/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- INDEX ARTIKEL -->
   <url>
     <loc>https://nodegunawan.github.io/artikel/index.html</loc>
     <lastmod>2026-04-14</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- TURUNAN (LEVEL 3 - IMPLEMENTASI) -->
   <url>
-    <loc>https://nodegunawan.github.io/artikel/jasa-foto-bandung/index.html</loc>
+    <loc>https://nodegunawan.github.io/artikel/jasa-foto-bandung/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-    <url>
-    <loc>https://nodegunawan.github.io/artikel/digital-marketing-bandung/index.html</loc>
+  <url>
+    <loc>https://nodegunawan.github.io/artikel/digital-marketing-bandung/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
- <url>
-    <loc>https://nodegunawan.github.io/artikel/komunitas-fotografi-bandung/index.html</loc>
+  <url>
+    <loc>https://nodegunawan.github.io/artikel/komunitas-fotografi-bandung/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url> 
-
+  </url>
 
 </urlset>
