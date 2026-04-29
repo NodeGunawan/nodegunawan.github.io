@@ -91,4 +91,12 @@
     <priority>0.85</priority>
   </url>
 
+    <url>
+    <loc>https://nodegunawan.github.io/dokumentasi-event-bandung/</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+
 </urlset>
