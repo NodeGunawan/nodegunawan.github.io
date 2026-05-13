@@ -105,5 +105,54 @@
     <priority>0.85</priority>
   </url>
 
+<url>
+    <loc>https://nodegunawan.github.io/bahasa-visual/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+</url>
+
+<url>
+    <loc>https://nodegunawan.github.io/bahasa-visual/semiotika-instingtif/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+</url>
+
+<url>
+    <loc>https://nodegunawan.github.io/bahasa-visual/kecepatan-dan-makna/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+</url>
+
+<url>
+    <loc>https://nodegunawan.github.io/bahasa-visual/angle-tanpa-rencana/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+</url>
+
+<url>
+    <loc>https://nodegunawan.github.io/bahasa-visual/jarak-pandang-visual/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+</url>
+
+<url>
+    <loc>https://nodegunawan.github.io/bahasa-visual/gerak-kamera-dan-rasa/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+</url>
+
+<url>
+    <loc>https://nodegunawan.github.io/bahasa-visual/kejelian-mata/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+</url>
+  
 
 </urlset>
