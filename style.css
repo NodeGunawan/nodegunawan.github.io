@@ -280,11 +280,14 @@ footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left, rgba(0,255,255,0.15), transparent 70%);
+  background: radial-gradient(circle at top left,
+    rgba(0,255,255,0.15),
+    transparent 70%);
   opacity: 0;
   transition: 0.4s;
-}
 
+  pointer-events: none;
+}
 .card:hover::before {
   opacity: 1;
 }
