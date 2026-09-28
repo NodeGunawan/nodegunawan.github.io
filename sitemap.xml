@@ -191,5 +191,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 </url>
+
+<url>
+    <loc>https://nodegunawan.github.io/artikel/g-loop-promosi-kesehatan/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
   
 </urlset>
