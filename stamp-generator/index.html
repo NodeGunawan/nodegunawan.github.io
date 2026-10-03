@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeGunawan - G-Loop Barcode Generator</title>
+    <!-- Library QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; padding: 20px; margin: 0; }
+        .container { max-width: 550px; margin: 30px auto; background: #1e293b; padding: 25px; border-radius: 12px; border: 1px solid #334155; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h2 { color: #38bdf8; margin-top: 0; text-align: center; font-size: 22px; }
+        p.subtitle { text-align: center; color: #94a3b8; font-size: 13px; margin-bottom: 20px; }
+        
+        label { display: block; margin-top: 12px; font-weight: 600; color: #94a3b8; font-size: 13px; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 5px; background: #0f172a; border: 1px solid #475569; color: #fff; border-radius: 6px; font-size: 14px; }
+        input[readonly] { background: #1a2332; color: #38bdf8; border-color: #334155; }
+        
+        button { width: 100%; padding: 12px; background: #38bdf8; color: #0f172a; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; margin-top: 18px; transition: background 0.2s; }
+        button:hover { background: #7dd3fc; }
+
+        .result-box { margin-top: 20px; padding: 20px; background: #0f172a; border-radius: 8px; border: 1px dashed #38bdf8; text-align: center; display: none; }
+        #qrcode { display: flex; justify-content: center; margin: 15px 0; }
+        #qrcode img { border: 8px solid #ffffff; border-radius: 6px; }
+        .stamp-info { font-size: 12px; color: #4ade80; font-family: monospace; white-space: pre-line; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>G-Loop Digital Stamp Generator</h2>
+    <p class="subtitle">Buat QR Barcode Jejak Digital terhubung ke <b>nodegunawan.github.io</b></p>
+
+    <label for="domainInput">Base Domain / Node Target:</label>
+    <input type="text" id="domainInput" value="https://nodegunawan.github.io/" readonly>
+
+    <label for="titleInput">Judul Foto / Artikel / Aset:</label>
+    <input type="text" id="titleInput" placeholder="Contoh: Arsitektur Semantik NodeGunawan">
+
+    <label for="pathInput">Path / Sub-URL Spesifik (Opsional):</label>
+    <input type="text" id="pathInput" placeholder="Contoh: artikel/foto-01.html">
+
+    <label for="ownerInput">Pemilik Entitas (Author):</label>
+    <input type="text" id="ownerInput" value="Gunawan Satyakusuma">
+
+    <button onclick="generateStamp()">Generate Barcode / Stamp Tag</button>
+
+    <div class="result-box" id="resultBox">
+        <span style="color: #38bdf8; font-weight: bold; font-size: 14px;">G-LOOP VISUAL STAMP READY</span>
+        <p style="font-size: 12px; color: #94a3b8; margin: 5px 0;">Tempelkan QR Barcode ini pada gambar atau artikel Anda:</p>
+        
+        <div id="qrcode"></div>
+
+        <div class="stamp-info" id="stampDetails"></div>
+
+        <p style="font-size: 11px; color: #64748b; margin-top: 12px;">
+            📌 <i>Hasil scan akan secara otomatis mengarahkan visitor atau bot mesin pencari ke domain nodegunawan.github.io beserta payload verifikasi entitasnya.</i>
+        </p>
+    </div>
+</div>
+
+<script>
+    function generateStamp() {
+        const baseDomain = "https://nodegunawan.github.io/";
+        const title = document.getElementById('titleInput').value.trim();
+        const path = document.getElementById('pathInput').value.trim();
+        const owner = document.getElementById('ownerInput').value.trim() || "Gunawan Satyakusuma";
+
+        if (!title) {
+            alert("Harap masukkan Judul Foto / Artikel!");
+            return;
+        }
+
+        // 1. Susun URL Target
+        let targetUrl = baseDomain;
+        if (path) {
+            targetUrl += path.startsWith('/') ? path.substring(1) : path;
+        }
+
+        // 2. Buat Payload G-Loop
+        const gloopPayload = {
+            node: "NodeGunawan",
+            title: title,
+            creator: owner,
+            timestamp: new Date().toISOString().split('T')[0]
+        };
+
+        // Enkoding payload Base64 untuk parameter URL
+        const encodedPayload = btoa(JSON.stringify(gloopPayload));
+        const finalQrUrl = `${targetUrl}${targetUrl.includes('?') ? '&' : '?'}gloop=${encodedPayload}`;
+
+        // 3. Render QR Code
+        const qrContainer = document.getElementById('qrcode');
+        qrContainer.innerHTML = "";
+        
+        new QRCode(qrContainer, {
+            text: finalQrUrl,
+            width: 170,
+            height: 170,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        // 4. Tampilkan Detail
+        const stampId = "GLOOP-" + Math.random().toString(36).substr(2, 6).toUpperCase();
+        document.getElementById('stampDetails').innerText = 
+            `STAMP ID : ${stampId}\nNODE     : nodegunawan.github.io\nOWNER    : ${owner.toUpperCase()}`;
+
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
