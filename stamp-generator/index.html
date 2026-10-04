@@ -494,65 +494,132 @@ let currentPayload = null;
 
 /* =====================================================
    G-LOOP LOGO
-   ===================================================== */
+===================================================== */
 
-const GLOOP_LOGO_SRC = "favicon.png";
+const GLOOP_LOGO_SRC = "./favicon.png";
 
 const gLoopLogo = new Image();
-gLoopLogo.src = GLOOP_LOGO_SRC;
 
 const gLoopLogoReady = new Promise((resolve) => {
-    gLoopLogo.onload = () => resolve(true);
-    gLoopLogo.onerror = () => resolve(false);
+
+    gLoopLogo.onload = function () {
+        console.log("✅ Logo G-Loop berhasil dimuat");
+        console.log(
+            "Ukuran logo:",
+            gLoopLogo.naturalWidth,
+            "x",
+            gLoopLogo.naturalHeight
+        );
+
+        resolve(true);
+    };
+
+    gLoopLogo.onerror = function () {
+        console.error(
+            "❌ Logo G-Loop gagal dimuat:",
+            GLOOP_LOGO_SRC
+        );
+
+        resolve(false);
+    };
+
+    gLoopLogo.src = GLOOP_LOGO_SRC;
 });
 
-/* Draw a small white logo plate in the QR center.
-   QR uses Error Correction H so the center branding
-   remains recoverable by QR readers. */
+
 function drawLogoOnCanvas(canvas) {
 
-    if (!canvas || !gLoopLogo.complete || !gLoopLogo.naturalWidth) {
+    if (
+        !canvas ||
+        !gLoopLogo.complete ||
+        !gLoopLogo.naturalWidth
+    ) {
+        console.warn("Logo belum siap.");
         return false;
     }
 
     const ctx = canvas.getContext("2d");
 
     const size = canvas.width;
-    const logoBox = Math.round(size * 0.235);
-    const x = Math.round((size - logoBox) / 2);
-    const y = Math.round((size - logoBox) / 2);
 
-    /* White safety zone */
+    const logoBox =
+        Math.round(size * 0.235);
+
+    const x =
+        Math.round((size - logoBox) / 2);
+
+    const y =
+        Math.round((size - logoBox) / 2);
+
+
+    /* White background */
     ctx.save();
+
     ctx.fillStyle = "#ffffff";
+
     ctx.beginPath();
-    ctx.roundRect(x, y, logoBox, logoBox, Math.round(logoBox * 0.12));
+
+    ctx.roundRect(
+        x,
+        y,
+        logoBox,
+        logoBox,
+        Math.round(logoBox * 0.12)
+    );
+
     ctx.fill();
 
-    /* Contain logo inside the white plate */
-    const padding = Math.round(logoBox * 0.10);
-    const maxW = logoBox - padding * 2;
-    const maxH = logoBox - padding * 2;
 
-    const ratio = gLoopLogo.naturalWidth / gLoopLogo.naturalHeight;
+    /* Logo */
+    const padding =
+        Math.round(logoBox * 0.10);
+
+    const maxW =
+        logoBox - padding * 2;
+
+    const maxH =
+        logoBox - padding * 2;
+
+
+    const ratio =
+        gLoopLogo.naturalWidth /
+        gLoopLogo.naturalHeight;
+
 
     let drawW = maxW;
     let drawH = drawW / ratio;
 
+
     if (drawH > maxH) {
+
         drawH = maxH;
         drawW = drawH * ratio;
+
     }
 
-    const drawX = x + (logoBox - drawW) / 2;
-    const drawY = y + (logoBox - drawH) / 2;
+
+    const drawX =
+        x + (logoBox - drawW) / 2;
+
+    const drawY =
+        y + (logoBox - drawH) / 2;
+
 
     ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(gLoopLogo, drawX, drawY, drawW, drawH);
+
+    ctx.drawImage(
+        gLoopLogo,
+        drawX,
+        drawY,
+        drawW,
+        drawH
+    );
+
     ctx.restore();
 
     return true;
 }
+
 
 
 /* =====================================================
