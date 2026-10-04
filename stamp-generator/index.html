@@ -5,11 +5,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>G-Loop Stamp Generator v2 | NodeGunawan</title>
+<title>G-Loop Stamp Generator v3 | NodeGunawan</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
 * {
     box-sizing: border-box;
     font-family: "Segoe UI", Tahoma, sans-serif;
@@ -23,9 +28,13 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 760px;
     margin: 20px auto;
 }
+
+/* =====================================================
+   CARD
+===================================================== */
 
 .card {
     background: #1e293b;
@@ -35,6 +44,10 @@ body {
     margin-bottom: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,.35);
 }
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
 
 h1,
 h2 {
@@ -46,16 +59,21 @@ h2 {
     text-align: center;
     color: #94a3b8;
     font-size: 13px;
+    line-height: 1.6;
 }
 
 label {
     display: block;
     margin-top: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: #cbd5e1;
     font-size: 13px;
     font-weight: 600;
 }
+
+/* =====================================================
+   INPUT
+===================================================== */
 
 input,
 textarea {
@@ -68,15 +86,19 @@ textarea {
     outline: none;
 }
 
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
 input:focus,
 textarea:focus {
     border-color: #38bdf8;
 }
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
 
 button {
     width: 100%;
@@ -88,6 +110,7 @@ button {
     color: #0f172a;
     font-weight: bold;
     cursor: pointer;
+    transition: .2s;
 }
 
 button:hover {
@@ -105,12 +128,25 @@ button:hover {
 
 .success {
     background: #22c55e;
+    color: #052e16;
+}
+
+.success:hover {
+    background: #4ade80;
 }
 
 .danger {
     background: #ef4444;
     color: white;
 }
+
+.danger:hover {
+    background: #f87171;
+}
+
+/* =====================================================
+   RESULT
+===================================================== */
 
 .result {
     display: none;
@@ -121,18 +157,33 @@ button:hover {
     border-radius: 10px;
 }
 
+/* =====================================================
+   QR PREVIEW
+===================================================== */
+
+.qr-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: #020617;
+    border-radius: 10px;
+}
+
 #qrcode {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    align-items: center;
 }
 
-#qrcode canvas,
-#qrcode img {
-    padding: 8px;
-    background: white;
-    border-radius: 8px;
+#qrcode canvas {
+    display: block;
 }
+
+/* =====================================================
+   STAMP INFORMATION
+===================================================== */
 
 .stamp-info {
     background: #020617;
@@ -141,16 +192,40 @@ button:hover {
     color: #4ade80;
     font-family: monospace;
     font-size: 12px;
+    line-height: 1.7;
     white-space: pre-wrap;
     word-break: break-word;
 }
 
 .url-box {
-    margin-top: 10px;
+    margin-top: 15px;
     color: #94a3b8;
     font-size: 11px;
     word-break: break-all;
+    line-height: 1.6;
 }
+
+/* =====================================================
+   BADGE
+===================================================== */
+
+.badge {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background: #0ea5e9;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.badge-green {
+    background: #16a34a;
+}
+
+/* =====================================================
+   DECODER
+===================================================== */
 
 .decoder-result {
     display: none;
@@ -165,24 +240,67 @@ button:hover {
     word-break: break-word;
     color: #4ade80;
     font-size: 12px;
+    line-height: 1.7;
 }
 
-.badge {
-    display: inline-block;
-    padding: 5px 8px;
-    border-radius: 5px;
-    background: #0ea5e9;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
+/* =====================================================
+   FILE DECODER
+===================================================== */
+
+.file-box {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px dashed #475569;
+    border-radius: 8px;
+    background: #0f172a;
 }
+
+.file-box input {
+    background: #020617;
+    padding: 10px;
+}
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+    display: none;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 7px;
+    background: #020617;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.status.success-status {
+    color: #4ade80;
+}
+
+.status.error-status {
+    color: #f87171;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 .footer {
     text-align: center;
     color: #64748b;
     font-size: 11px;
     margin-top: 25px;
+    line-height: 1.6;
 }
+
+.small-note {
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 8px;
+}
+
 </style>
 </head>
 
@@ -190,16 +308,17 @@ button:hover {
 
 <div class="container">
 
-<!-- ==========================================
+<!-- =====================================================
      GENERATOR
-=========================================== -->
+===================================================== -->
 
 <div class="card">
 
-<h1>G-Loop Stamp Generator v2</h1>
+<h1>G-Loop Stamp Generator v3</h1>
 
 <p class="subtitle">
-QR Barcode untuk membawa payload identitas digital G-Loop
+Digital visual stamp untuk membawa identitas, target,
+dan timestamp G-Loop ke dalam sebuah aset visual.
 </p>
 
 <label>Base Domain / Node Target</label>
@@ -207,6 +326,7 @@ QR Barcode untuk membawa payload identitas digital G-Loop
 <input
     id="domainInput"
     value="https://nodegunawan.github.io/"
+    type="url"
 >
 
 <label>Judul Foto / Artikel / Aset</label>
@@ -237,25 +357,36 @@ QR Barcode untuk membawa payload identitas digital G-Loop
 <div class="result" id="resultBox">
 
     <div style="text-align:center;">
-        <span class="badge">
+        <span class="badge badge-green">
             G-LOOP VISUAL STAMP READY
         </span>
     </div>
 
-    <div id="qrcode"></div>
+    <div class="qr-preview">
+        <div id="qrcode"></div>
+    </div>
 
     <div class="stamp-info" id="stampDetails"></div>
 
     <div class="url-box">
+
         <strong>QR TARGET:</strong>
+
         <div id="finalUrl"></div>
+
     </div>
 
-    <button onclick="downloadQR()" class="success">
-        Download PNG
+    <button
+        onclick="downloadQR()"
+        class="success"
+    >
+        Download PNG 512×512
     </button>
 
-    <button onclick="copyURL()" class="secondary">
+    <button
+        onclick="copyURL()"
+        class="secondary"
+    >
         Copy URL
     </button>
 
@@ -264,16 +395,17 @@ QR Barcode untuk membawa payload identitas digital G-Loop
 </div>
 
 
-<!-- ==========================================
+<!-- =====================================================
      DECODER
-=========================================== -->
+===================================================== -->
 
 <div class="card">
 
 <h2>G-Loop Decoder</h2>
 
 <p class="subtitle">
-Masukkan URL hasil scan QR untuk membaca payload G-Loop.
+Baca payload G-Loop dari URL, payload langsung,
+atau file gambar QR.
 </p>
 
 <label>URL / Payload G-Loop</label>
@@ -284,10 +416,41 @@ Masukkan URL hasil scan QR untuk membaca payload G-Loop.
 ></textarea>
 
 <button onclick="decodeGLoop()">
-    Decode G-Loop
+    Decode URL / Payload
 </button>
 
-<div class="decoder-result" id="decoderResult">
+
+<div class="file-box">
+
+<label>
+Decode dari File Gambar
+</label>
+
+<input
+    type="file"
+    id="qrFileInput"
+    accept="image/png,image/jpeg,image/webp"
+    onchange="decodeQRImage()"
+>
+
+<p class="small-note">
+Pilih PNG/JPG hasil Download G-Loop Stamp untuk
+mencoba membaca QR secara langsung.
+</p>
+
+</div>
+
+
+<div
+    class="status"
+    id="decoderStatus"
+></div>
+
+
+<div
+    class="decoder-result"
+    id="decoderResult"
+>
 
     <span class="badge">
         G-LOOP PAYLOAD DETECTED
@@ -301,10 +464,23 @@ Masukkan URL hasil scan QR untuk membaca payload G-Loop.
 
 
 <div class="footer">
-NodeGunawan · G-Loop Digital Stamp · Experimental Prototype
+
+NodeGunawan · G-Loop Digital Stamp · v3
+
+<br>
+
+Experimental Prototype · Digital Entity Trace
+
 </div>
 
 </div>
+
+
+<!-- =====================================================
+     QR IMAGE DECODER LIBRARY
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 
 
 <script>
@@ -315,6 +491,7 @@ NodeGunawan · G-Loop Digital Stamp · Experimental Prototype
 
 let currentURL = "";
 let currentStampID = "";
+let currentPayload = null;
 
 
 /* =====================================================
@@ -323,14 +500,19 @@ let currentStampID = "";
 
 function encodeBase64Unicode(obj) {
 
-    const json = JSON.stringify(obj);
+    const json =
+        JSON.stringify(obj);
 
-    const bytes = new TextEncoder().encode(json);
+    const bytes =
+        new TextEncoder().encode(json);
 
     let binary = "";
 
     bytes.forEach(byte => {
-        binary += String.fromCharCode(byte);
+
+        binary +=
+            String.fromCharCode(byte);
+
     });
 
     return btoa(binary)
@@ -346,23 +528,32 @@ function encodeBase64Unicode(obj) {
 
 function decodeBase64Unicode(base64) {
 
-    base64 = base64
+    base64 =
+        base64
         .replace(/-/g, "+")
         .replace(/_/g, "/");
 
-    while (base64.length % 4) {
+    while (
+        base64.length % 4
+    ) {
+
         base64 += "=";
+
     }
 
-    const binary = atob(base64);
+    const binary =
+        atob(base64);
 
-    const bytes = Uint8Array.from(
-        binary,
-        char => char.charCodeAt(0)
-    );
+    const bytes =
+        Uint8Array.from(
+            binary,
+            char =>
+                char.charCodeAt(0)
+        );
 
     return JSON.parse(
-        new TextDecoder().decode(bytes)
+        new TextDecoder()
+            .decode(bytes)
     );
 }
 
@@ -374,26 +565,44 @@ function decodeBase64Unicode(base64) {
 function generateStamp() {
 
     const baseDomain =
-        document.getElementById("domainInput")
+        document
+        .getElementById("domainInput")
         .value
         .trim();
 
     const title =
-        document.getElementById("titleInput")
+        document
+        .getElementById("titleInput")
         .value
         .trim();
 
     const path =
-        document.getElementById("pathInput")
+        document
+        .getElementById("pathInput")
         .value
         .trim();
 
     const owner =
-        document.getElementById("ownerInput")
+        document
+        .getElementById("ownerInput")
         .value
-        .trim() ||
+        .trim()
+        ||
         "Gunawan Satyakusuma";
 
+
+    /* =================================================
+       VALIDATION
+    ================================================= */
+
+    if (!baseDomain) {
+
+        alert(
+            "Base Domain wajib diisi."
+        );
+
+        return;
+    }
 
     if (!title) {
 
@@ -405,14 +614,37 @@ function generateStamp() {
     }
 
 
-    /* ===============================================
+    let normalizedDomain;
+
+    try {
+
+        normalizedDomain =
+            new URL(baseDomain);
+
+    }
+
+    catch (error) {
+
+        alert(
+            "Base Domain tidak valid."
+        );
+
+        return;
+    }
+
+
+    /* =================================================
        TARGET URL
-    =============================================== */
+    ================================================= */
 
     let targetUrl =
-        baseDomain.endsWith("/")
-        ? baseDomain
-        : baseDomain + "/";
+        normalizedDomain.href;
+
+    if (!targetUrl.endsWith("/")) {
+
+        targetUrl += "/";
+
+    }
 
 
     if (path) {
@@ -421,144 +653,199 @@ function generateStamp() {
             path.startsWith("/")
             ? path.substring(1)
             : path;
+
     }
 
 
-    /* ===============================================
+    /* =================================================
        UNIQUE STAMP ID
-    =============================================== */
+    ================================================= */
 
     currentStampID =
         "GLOOP-" +
-        crypto.randomUUID()
+        crypto
+        .randomUUID()
         .replace(/-/g, "")
         .substring(0, 10)
         .toUpperCase();
 
 
-    /* ===============================================
+    /* =================================================
+       TIMESTAMP
+    ================================================= */
+
+    const timestamp =
+        new Date()
+        .toISOString();
+
+
+    /* =================================================
        PAYLOAD
-    =============================================== */
+    ================================================= */
 
-    const payload = {
+    currentPayload = {
 
-        protocol: "G-LOOP",
+        protocol:
+            "G-LOOP",
 
-        version: "2.0",
+        version:
+            "3.0",
 
-        stamp_id: currentStampID,
+        stamp_id:
+            currentStampID,
 
-        node: "NodeGunawan",
+        node:
+            "NodeGunawan",
 
-        creator: owner,
+        creator:
+            owner,
 
-        title: title,
+        title:
+            title,
 
-        target: targetUrl,
+        target:
+            targetUrl,
 
         timestamp:
-            new Date().toISOString(),
+            timestamp,
 
         generator:
-            "G-Loop Stamp Generator v2"
+            "G-Loop Stamp Generator v3"
 
     };
 
 
-    /* ===============================================
+    /* =================================================
        ENCODE
-    =============================================== */
+    ================================================= */
 
     const encodedPayload =
-        encodeBase64Unicode(payload);
+        encodeBase64Unicode(
+            currentPayload
+        );
 
 
-    /* ===============================================
+    /* =================================================
        FINAL URL
-    =============================================== */
+    ================================================= */
 
     currentURL =
         targetUrl +
-        (targetUrl.includes("?") ? "&" : "?") +
+        (
+            targetUrl.includes("?")
+            ? "&"
+            : "?"
+        ) +
         "gloop=" +
         encodedPayload;
 
 
-    /* ===============================================
+    /* =================================================
        QR RESET
-    =============================================== */
+    ================================================= */
 
     const qrContainer =
-        document.getElementById("qrcode");
+        document
+        .getElementById("qrcode");
 
     qrContainer.innerHTML = "";
 
 
-    /* ===============================================
+    /* =================================================
        QR GENERATION
-    =============================================== */
+    ================================================= */
 
-    new QRCode(qrContainer, {
+    new QRCode(
+        qrContainer,
+        {
 
-        text: currentURL,
+            text:
+                currentURL,
 
-        width: 220,
+            width:
+                448,
 
-        height: 220,
+            height:
+                448,
 
-        colorDark: "#000000",
+            colorDark:
+                "#000000",
 
-        colorLight: "#ffffff",
+            colorLight:
+                "#ffffff",
 
-        correctLevel:
-            QRCode.CorrectLevel.H
+            correctLevel:
+                QRCode.CorrectLevel.M
 
-    });
+        }
+    );
 
 
-    /* ===============================================
-       DISPLAY DATA
-    =============================================== */
+    /* =================================================
+       DISPLAY INFORMATION
+    ================================================= */
 
-    document.getElementById(
+    document
+    .getElementById(
         "stampDetails"
-    ).textContent =
+    )
+    .textContent =
 
 `STAMP ID : ${currentStampID}
 PROTOCOL : G-LOOP
-VERSION  : 2.0
+VERSION  : 3.0
 NODE     : NodeGunawan
 CREATOR  : ${owner}
 TITLE    : ${title}
-TIMESTAMP: ${payload.timestamp}`;
+TARGET   : ${targetUrl}
+TIMESTAMP: ${timestamp}`;
 
 
-    document.getElementById(
+    document
+    .getElementById(
         "finalUrl"
-    ).textContent = currentURL;
+    )
+    .textContent =
+        currentURL;
 
 
-    document.getElementById(
+    /* =================================================
+       SHOW RESULT
+    ================================================= */
+
+    document
+    .getElementById(
         "resultBox"
-    ).style.display = "block";
+    )
+    .style.display =
+        "block";
 
 
-    /* ===============================================
-       SCROLL RESULT
-    =============================================== */
+    /* =================================================
+       SCROLL
+    ================================================= */
 
-    document.getElementById(
+    document
+    .getElementById(
         "resultBox"
-    ).scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
+    )
+    .scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "nearest"
+
     });
 
 }
 
 
 /* =====================================================
-   DOWNLOAD PNG
+   DOWNLOAD QR
+   IMPORTANT:
+   CREATE NEW CANVAS WITH REAL QUIET ZONE
 ===================================================== */
 
 function downloadQR() {
@@ -574,50 +861,143 @@ function downloadQR() {
 
 
     const qrContainer =
-        document.getElementById("qrcode");
+        document
+        .getElementById("qrcode");
 
 
-    const canvas =
-        qrContainer.querySelector("canvas");
+    const sourceCanvas =
+        qrContainer
+        .querySelector("canvas");
 
 
-    if (canvas) {
+    if (!sourceCanvas) {
 
-        const link =
-            document.createElement("a");
-
-        link.download =
-            currentStampID +
-            ".png";
-
-        link.href =
-            canvas.toDataURL("image/png");
-
-        link.click();
+        alert(
+            "QR Code belum siap."
+        );
 
         return;
     }
 
 
-    const img =
-        qrContainer.querySelector("img");
+    /* =================================================
+       FINAL EXPORT
+    ================================================= */
+
+    const exportSize =
+        512;
+
+    const margin =
+        32;
+
+    const qrSize =
+        exportSize -
+        (margin * 2);
 
 
-    if (img) {
+    const exportCanvas =
+        document
+        .createElement("canvas");
 
-        const link =
-            document.createElement("a");
 
-        link.download =
-            currentStampID +
-            ".png";
+    exportCanvas.width =
+        exportSize;
 
-        link.href =
-            img.src;
+    exportCanvas.height =
+        exportSize;
 
-        link.click();
 
-    }
+    const ctx =
+        exportCanvas
+        .getContext("2d");
+
+
+    /* =================================================
+       WHITE BACKGROUND
+    ================================================= */
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.fillRect(
+        0,
+        0,
+        exportSize,
+        exportSize
+    );
+
+
+    /* =================================================
+       DISABLE IMAGE SMOOTHING
+    ================================================= */
+
+    ctx.imageSmoothingEnabled =
+        false;
+
+
+    /* =================================================
+       DRAW QR
+    ================================================= */
+
+    ctx.drawImage(
+
+        sourceCanvas,
+
+        margin,
+        margin,
+
+        qrSize,
+        qrSize
+
+    );
+
+
+    /* =================================================
+       DOWNLOAD
+    ================================================= */
+
+    exportCanvas
+        .toBlob(
+            function(blob) {
+
+                const url =
+                    URL.createObjectURL(
+                        blob
+                    );
+
+                const link =
+                    document
+                    .createElement("a");
+
+                link.download =
+                    currentStampID +
+                    ".png";
+
+                link.href =
+                    url;
+
+                document
+                .body
+                .appendChild(link);
+
+                link.click();
+
+                link.remove();
+
+                setTimeout(
+                    function() {
+
+                        URL.revokeObjectURL(
+                            url
+                        );
+
+                    },
+                    1000
+                );
+
+            },
+            "image/png"
+        );
 
 }
 
@@ -640,9 +1020,11 @@ async function copyURL() {
 
     try {
 
-        await navigator.clipboard.writeText(
-            currentURL
-        );
+        await navigator
+            .clipboard
+            .writeText(
+                currentURL
+            );
 
         alert(
             "G-Loop URL berhasil dicopy."
@@ -653,15 +1035,20 @@ async function copyURL() {
     catch (error) {
 
         const temp =
-            document.createElement("textarea");
+            document
+            .createElement("textarea");
 
-        temp.value = currentURL;
+        temp.value =
+            currentURL;
 
-        document.body.appendChild(temp);
+        document
+        .body
+        .appendChild(temp);
 
         temp.select();
 
-        document.execCommand("copy");
+        document
+        .execCommand("copy");
 
         temp.remove();
 
@@ -675,13 +1062,14 @@ async function copyURL() {
 
 
 /* =====================================================
-   DECODER
+   DECODER URL / PAYLOAD
 ===================================================== */
 
 function decodeGLoop() {
 
     const input =
-        document.getElementById(
+        document
+        .getElementById(
             "decoderInput"
         )
         .value
@@ -703,32 +1091,43 @@ function decodeGLoop() {
         let encoded = "";
 
 
-        /* ==========================================
-           JIKA INPUT ADALAH URL
-        ========================================== */
+        /* =============================================
+           INPUT URL
+        ============================================= */
 
         if (
-            input.startsWith("http://") ||
-            input.startsWith("https://")
+
+            input.startsWith(
+                "http://"
+            )
+
+            ||
+
+            input.startsWith(
+                "https://"
+            )
+
         ) {
 
             const url =
                 new URL(input);
 
             encoded =
-                url.searchParams.get(
-                    "gloop"
-                );
+                url
+                .searchParams
+                .get("gloop");
 
         }
 
-        /* ==========================================
-           JIKA INPUT LANGSUNG PAYLOAD
-        ========================================== */
+
+        /* =============================================
+           INPUT PAYLOAD
+        ============================================= */
 
         else {
 
-            encoded = input;
+            encoded =
+                input;
 
         }
 
@@ -742,21 +1141,46 @@ function decodeGLoop() {
         }
 
 
-        /* ==========================================
+        /* =============================================
            DECODE
-        ========================================== */
+        ============================================= */
 
         const payload =
-            decodeBase64Unicode(encoded);
+            decodeBase64Unicode(
+                encoded
+            );
 
 
-        /* ==========================================
-           DISPLAY
-        ========================================== */
+        displayDecodedPayload(
+            payload
+        );
 
-        document.getElementById(
-            "decodedData"
-        ).textContent =
+    }
+
+    catch (error) {
+
+        showDecoderError(
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   DISPLAY DECODED PAYLOAD
+===================================================== */
+
+function displayDecodedPayload(
+    payload
+) {
+
+    document
+    .getElementById(
+        "decodedData"
+    )
+    .textContent =
 
 JSON.stringify(
     payload,
@@ -765,33 +1189,336 @@ JSON.stringify(
 );
 
 
-        document.getElementById(
-            "decoderResult"
-        ).style.display = "block";
+    document
+    .getElementById(
+        "decoderResult"
+    )
+    .style.display =
+        "block";
 
+
+    setStatus(
+        "G-Loop payload berhasil dibaca.",
+        "success"
+    );
+
+}
+
+
+/* =====================================================
+   DECODER ERROR
+===================================================== */
+
+function showDecoderError(
+    message
+) {
+
+    document
+    .getElementById(
+        "decodedData"
+    )
+    .textContent =
+
+"ERROR:\n" +
+message;
+
+
+    document
+    .getElementById(
+        "decoderResult"
+    )
+    .style.display =
+        "block";
+
+
+    setStatus(
+        "Payload tidak dapat dibaca.",
+        "error"
+    );
+
+}
+
+
+/* =====================================================
+   STATUS MESSAGE
+===================================================== */
+
+function setStatus(
+    message,
+    type
+) {
+
+    const status =
+        document
+        .getElementById(
+            "decoderStatus"
+        );
+
+
+    status.textContent =
+        message;
+
+
+    status.style.display =
+        "block";
+
+
+    status.className =
+        "status";
+
+
+    if (
+        type === "success"
+    ) {
+
+        status.classList.add(
+            "success-status"
+        );
 
     }
 
-    catch (error) {
+    else if (
+        type === "error"
+    ) {
 
-        document.getElementById(
-            "decodedData"
-        ).textContent =
-
-"ERROR:\n" +
-error.message;
-
-        document.getElementById(
-            "decoderResult"
-        ).style.display = "block";
+        status.classList.add(
+            "error-status"
+        );
 
     }
 
 }
 
+
+/* =====================================================
+   QR IMAGE DECODER
+===================================================== */
+
+function decodeQRImage() {
+
+    const fileInput =
+        document
+        .getElementById(
+            "qrFileInput"
+        );
+
+
+    const file =
+        fileInput.files[0];
+
+
+    if (!file) {
+
+        return;
+
+    }
+
+
+    if (
+        !file.type.startsWith(
+            "image/"
+        )
+    ) {
+
+        setStatus(
+            "File harus berupa gambar.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    setStatus(
+        "Membaca QR dari gambar...",
+        ""
+    );
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(event) {
+
+            const img =
+                new Image();
+
+
+            img.onload =
+                function() {
+
+                    decodeImageCanvas(
+                        img
+                    );
+
+                };
+
+
+            img.src =
+                event.target.result;
+
+        };
+
+
+    reader.readAsDataURL(
+        file
+    );
+
+}
+
+
+/* =====================================================
+   DECODE IMAGE CANVAS
+===================================================== */
+
+function decodeImageCanvas(
+    img
+) {
+
+    const canvas =
+        document
+        .createElement(
+            "canvas"
+        );
+
+
+    const ctx =
+        canvas.getContext(
+            "2d"
+        );
+
+
+    canvas.width =
+        img.naturalWidth;
+
+    canvas.height =
+        img.naturalHeight;
+
+
+    ctx.drawImage(
+        img,
+        0,
+        0
+    );
+
+
+    const imageData =
+        ctx.getImageData(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+    const code =
+        jsQR(
+            imageData.data,
+            imageData.width,
+            imageData.height,
+            {
+
+                inversionAttempts:
+                    "attemptBoth"
+
+            }
+        );
+
+
+    if (!code) {
+
+        setStatus(
+            "QR tidak ditemukan pada gambar.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const decoded =
+        code.data;
+
+
+    document
+    .getElementById(
+        "decoderInput"
+    )
+    .value =
+        decoded;
+
+
+    setStatus(
+        "QR berhasil dibaca dari gambar.",
+        "success"
+    );
+
+
+    /*
+       Setelah QR terbaca,
+       langsung decode payload.
+    */
+
+    decodeGLoop();
+
+}
+
+
+/* =====================================================
+   AUTO DETECT G-LOOP FROM PAGE URL
+===================================================== */
+
+(function autoDetectGLoop() {
+
+    try {
+
+        const url =
+            new URL(
+                window.location.href
+            );
+
+
+        const encoded =
+            url
+            .searchParams
+            .get("gloop");
+
+
+        if (!encoded) {
+
+            return;
+
+        }
+
+
+        const payload =
+            decodeBase64Unicode(
+                encoded
+            );
+
+
+        displayDecodedPayload(
+            payload
+        );
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "No G-Loop payload detected."
+        );
+
+    }
+
+})();
+
 </script>
 
 </body>
 </html>
-
 
