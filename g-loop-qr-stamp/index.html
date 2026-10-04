@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>G-Loop QR Stamp | Identitas Digital pada Aset Visual</title>
+
+<meta name="description" content="G-Loop QR Stamp adalah konsep digital visual stamp yang menghubungkan QR Code, metadata, creator, node, timestamp, target URL, dan identitas unik pada aset visual.">
+
+<link rel="canonical" href="https://nodegunawan.github.io/g-loop-qr-stamp/" />
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/ekosistem-digital/">Ekosistem Digital</a>
+    <a href="/about.html">About</a>
+</nav>
+
+<div class="container">
+
+<h1>G-Loop QR Stamp</h1>
+
+<p class="center">
+Identitas Digital · Metadata · Visual Stamp · Digital Entity Trace
+</p>
+
+<div class="divider"></div>
+
+<!-- DEFINISI -->
+
+<h2>Apa Itu G-Loop QR Stamp?</h2>
+
+<p>
+G-Loop QR Stamp adalah konsep digital visual stamp yang menggunakan QR Code sebagai media pembawa payload identitas digital.
+Payload tersebut dapat berisi informasi mengenai protocol, version, stamp ID, node, creator, title, target URL, timestamp, dan generator.
+</p>
+
+<p>
+Dalam konteks G-Loop, QR Code tidak hanya digunakan sebagai tautan menuju sebuah halaman web.
+QR digunakan sebagai penghubung antara aset visual dengan informasi digital yang dapat dibaca kembali melalui decoder.
+</p>
+
+<p>
+Dengan pendekatan ini, sebuah foto, poster, artikel, dokumen, atau aset visual lainnya dapat memiliki titik hubungan dengan identitas dan konteks digital tertentu.
+</p>
+
+<div class="divider"></div>
+
+<!-- KONSEP -->
+
+<h2>Konsep Digital Entity Trace</h2>
+
+<p>
+G-Loop QR Stamp dirancang sebagai lapisan identitas yang dapat ditempatkan pada aset visual.
+Tujuan utamanya bukan membuat aset tidak dapat disalin, tetapi menyediakan mekanisme untuk menghubungkan aset dengan identitas digital yang dapat dipindai kembali.
+</p>
+
+<p>
+Konsep dasarnya dapat digambarkan sebagai:
+</p>
+
+<p class="center">
+<strong>
+Aset Visual → G-Loop Stamp → QR Code → Payload → Identitas Digital
+</strong>
+</p>
+
+<p>
+Dengan demikian, QR menjadi media pembawa payload, sedangkan metadata di dalam payload memberikan konteks terhadap stamp yang dibuat.
+</p>
+
+<div class="divider"></div>
+
+<!-- PAYLOAD -->
+
+<h2>Struktur G-Loop Payload</h2>
+
+<p>
+Setiap G-Loop Stamp dapat membawa payload terstruktur yang merepresentasikan identitas stamp.
+Contoh payload:
+</p>
+
+<pre><code>{
+    "protocol": "G-LOOP",
+    "version": "3.0",
+    "stamp_id": "GLOOP-XXXXXXXXXX",
+    "node": "NodeGunawan",
+    "creator": "Gunawan Satyakusuma",
+    "title": "Dokumentasi Braga Bandung",
+    "target": "https://nodegunawan.github.io/",
+    "timestamp": "2026-10-04T00:00:00.000Z",
+    "generator": "G-Loop Stamp Generator v4"
+}</code></pre>
+
+<p>
+Struktur tersebut memungkinkan setiap stamp memiliki identitas yang dapat dibedakan dari stamp lainnya.
+</p>
+
+<div class="divider"></div>
+
+<!-- STAMP ID -->
+
+<h2>Stamp ID</h2>
+
+<p>
+Setiap G-Loop Stamp memiliki <strong>Stamp ID</strong> yang unik.
+Stamp ID berfungsi sebagai identitas khusus untuk masing-masing stamp yang dibuat.
+</p>
+
+<p>
+Contoh:
+</p>
+
+<pre><code>GLOOP-91A82C4F10
+GLOOP-72B91D8A44
+GLOOP-A81C42F992</code></pre>
+
+<p>
+Dengan Stamp ID, sebuah sistem dapat membedakan satu stamp dengan stamp lainnya meskipun dibuat oleh creator dan node yang sama.
+</p>
+
+<div class="divider"></div>
+
+<!-- CREATOR NODE -->
+
+<h2>Creator dan Node</h2>
+
+<p>
+Payload G-Loop dapat mencatat identitas creator dan node yang digunakan dalam pembuatan stamp.
+</p>
+
+<pre><code>CREATOR : Gunawan Satyakusuma
+NODE    : NodeGunawan</code></pre>
+
+<p>
+Creator menunjukkan entitas yang dicantumkan sebagai pembuat stamp.
+Node dapat digunakan sebagai namespace atau lingkungan digital tempat stamp tersebut dibuat.
+</p>
+
+<p>
+Konsep node memungkinkan protokol G-Loop dikembangkan menjadi sistem yang dapat digunakan oleh berbagai entitas dengan struktur payload yang tetap konsisten.
+</p>
+
+<div class="divider"></div>
+
+<!-- TIMESTAMP -->
+
+<h2>Timestamp</h2>
+
+<p>
+G-Loop QR Stamp menyimpan timestamp sebagai bagian dari metadata.
+Timestamp memberikan konteks waktu terhadap proses pembuatan stamp.
+</p>
+
+<pre><code>2026-10-04T00:00:00.000Z</code></pre>
+
+<p>
+Timestamp perlu dipahami sebagai metadata waktu dari sistem pembuat stamp.
+Timestamp tersebut bukan otomatis merupakan bukti hukum mengenai kepemilikan atau penciptaan sebuah karya.
+</p>
+
+<p>
+Untuk kebutuhan pembuktian yang lebih kuat, sistem dapat dikembangkan menggunakan digital signature, timestamp authority, hash aset, atau mekanisme ledger yang dapat diverifikasi secara independen.
+</p>
+
+<div class="divider"></div>
+
+<!-- QR -->
+
+<h2>QR Code sebagai Media Payload</h2>
+
+<p>
+QR Code digunakan karena dapat dipindai menggunakan perangkat yang tersedia secara luas, termasuk kamera smartphone.
+</p>
+
+<p>
+Dalam G-Loop, QR Code berfungsi sebagai jembatan antara aset visual dan data digital.
+Sebuah QR dapat mengarah ke URL yang membawa parameter G-Loop seperti:
+</p>
+
+<pre><code>https://nodegunawan.github.io/?gloop=PAYLOAD</code></pre>
+
+<p>
+Payload tersebut kemudian dapat diproses oleh decoder untuk mendapatkan kembali informasi identitas dan metadata stamp.
+</p>
+
+<div class="divider"></div>
+
+<!-- ENCODING -->
+
+<h2>Encoding Payload</h2>
+
+<p>
+Karena payload dapat memiliki beberapa informasi, data dapat dikonversi terlebih dahulu agar lebih sesuai untuk digunakan sebagai parameter URL.
+</p>
+
+<p class="center">
+<strong>
+JSON → UTF-8 → Base64 URL Safe → URL → QR Code
+</strong>
+</p>
+
+<p>
+Penggunaan Base64 URL Safe membantu menghindari karakter yang dapat menimbulkan masalah ketika payload ditempatkan di dalam URL.
+</p>
+
+<div class="divider"></div>
+
+<!-- LOGO -->
+
+<h2>Logo pada QR Stamp</h2>
+
+<p>
+G-Loop QR Stamp dapat menggunakan logo pada bagian tengah QR Code sebagai identitas visual.
+</p>
+
+<p>
+QR Code memiliki mekanisme error correction yang memungkinkan sebagian data tetap dapat dipulihkan ketika terdapat gangguan pada pola QR.
+</p>
+
+<p>
+Karena itu, logo dapat ditempatkan pada area tengah QR dengan ukuran yang tetap proporsional terhadap keseluruhan QR.
+</p>
+
+<pre><code>
+┌─────────────────────────┐
+│                         │
+│       QR CODE           │
+│                         │
+│        ┌─────┐          │
+│        │ LOGO│          │
+│        └─────┘          │
+│                         │
+│       QR CODE           │
+│                         │
+└─────────────────────────┘
+</code></pre>
+
+<p>
+Logo berfungsi sebagai identitas visual, sementara pola QR tetap menjadi media utama untuk membawa payload.
+</p>
+
+<div class="divider"></div>
+
+<!-- PROSES -->
+
+<h2>Proses Pembuatan G-Loop Stamp</h2>
+
+<p>
+Secara konseptual, proses pembuatan G-Loop QR Stamp terdiri dari beberapa tahap:
+</p>
+
+<pre><code>
+Data Aset
+   │
+   ▼
+Metadata
+   │
+   ▼
+G-Loop Payload
+   │
+   ▼
+Base64 URL Safe
+   │
+   ▼
+URL
+   │
+   ▼
+QR Code
+   │
+   ▼
+Logo Overlay
+   │
+   ▼
+Digital Stamp
+</code></pre>
+
+<p>
+Generator menggabungkan informasi aset dengan metadata G-Loop, menghasilkan payload, kemudian mengubah payload tersebut menjadi QR Code.
+</p>
+
+<div class="divider"></div>
+
+<!-- DECODER -->
+
+<h2>G-Loop Decoder</h2>
+
+<p>
+G-Loop QR Stamp juga dapat dilengkapi dengan decoder untuk membaca kembali informasi yang terdapat pada stamp.
+</p>
+
+<p>
+Decoder dapat dirancang untuk menerima:
+</p>
+
+<ul>
+<li>URL G-Loop</li>
+<li>Payload G-Loop</li>
+<li>File PNG atau JPG yang berisi QR Stamp</li>
+</ul>
+
+<p>
+Untuk file gambar, decoder terlebih dahulu membaca QR Code kemudian mengambil payload G-Loop dari URL.
+</p>
+
+<pre><code>
+PNG / JPG
+    │
+    ▼
+QR Scanner
+    │
+    ▼
+G-Loop URL
+    │
+    ▼
+Extract ?gloop=
+    │
+    ▼
+Base64 Decode
+    │
+    ▼
+JSON
+    │
+    ▼
+Metadata
+</code></pre>
+
+<div class="divider"></div>
+
+<!-- PERBEDAAN -->
+
+<h2>QR Biasa dan G-Loop QR Stamp</h2>
+
+<p>
+QR Code biasa dapat digunakan untuk menyimpan sebuah URL:
+</p>
+
+<pre><code>https://example.com</code></pre>
+
+<p>
+Sementara G-Loop QR Stamp dapat membawa struktur identitas:
+</p>
+
+<pre><code>
+Protocol
+Version
+Stamp ID
+Node
+Creator
+Title
+Target
+Timestamp
+Generator
+</code></pre>
+
+<p>
+Perbedaannya terletak pada konteks payload.
+QR menjadi medianya, sedangkan metadata menjadi informasi identitas yang dibawa oleh stamp.
+</p>
+
+<div class="divider"></div>
+
+<!-- IMPLEMENTASI -->
+
+<h2>Implementasi pada Aset Visual</h2>
+
+<h3>Fotografi</h3>
+
+<p>
+Fotografer dapat menggunakan G-Loop Stamp pada preview, portfolio, dokumentasi kegiatan, atau materi publikasi.
+Stamp dapat menghubungkan visual dengan creator, judul, waktu, Stamp ID, dan halaman digital.
+</p>
+
+<h3>Dokumentasi Lapangan</h3>
+
+<p>
+Dokumentasi kegiatan, lokasi, komunitas, maupun proyek dapat memiliki Stamp ID yang berbeda sehingga setiap stamp mempunyai identitas tersendiri.
+</p>
+
+<h3>Artikel</h3>
+
+<p>
+Artikel dapat menggunakan QR Stamp sebagai penghubung antara salinan visual atau materi publikasi dengan halaman sumber digital.
+</p>
+
+<h3>Arsip Digital</h3>
+
+<p>
+G-Loop Stamp dapat digunakan sebagai lapisan identifikasi pada arsip visual yang kemudian dicetak atau dibagikan dalam bentuk fisik.
+</p>
+
+<h3>Poster dan Publikasi</h3>
+
+<p>
+Poster dapat memiliki QR Stamp yang mengarah ke halaman resmi sekaligus membawa payload identitas G-Loop.
+</p>
+
+<div class="divider"></div>
+
+<!-- BATASAN -->
+
+<h2>Batasan G-Loop QR Stamp</h2>
+
+<p>
+G-Loop QR Stamp bukan sistem anti-pemalsuan absolut.
+QR Code dapat disalin, difoto ulang, dicetak ulang, maupun direproduksi.
+Payload yang terdapat di dalam QR juga dapat dibaca oleh pihak lain yang memiliki akses terhadap stamp.
+</p>
+
+<p>
+Karena itu, G-Loop QR Stamp lebih tepat dipahami sebagai:
+</p>
+
+<p class="center">
+<strong>
+mekanisme identifikasi dan penghubung metadata,
+bukan jaminan keaslian absolut.
+</strong>
+</p>
+
+<div class="divider"></div>
+
+<!-- PENGEMBANGAN -->
+
+<h2>Arah Pengembangan</h2>
+
+<p>
+Pengembangan berikutnya dapat menambahkan fingerprint atau hash dari aset asli.
+Contoh struktur:
+</p>
+
+<pre><code>{
+    "protocol": "G-LOOP",
+    "version": "4.0",
+    "stamp_id": "GLOOP-XXXXXXXXXX",
+    "node": "NodeGunawan",
+    "creator": "Gunawan Satyakusuma",
+    "title": "Dokumentasi Braga Bandung",
+    "target": "https://nodegunawan.github.io/...",
+    "timestamp": "2026-10-04T00:00:00.000Z",
+    "asset_hash": "SHA256:..."
+}</code></pre>
+
+<p>
+Dengan asset hash, sistem dapat membandingkan fingerprint file yang diperiksa dengan fingerprint yang tercatat pada metadata stamp.
+</p>
+
+<p>
+Pengembangan lebih lanjut dapat mencakup:
+</p>
+
+<ul>
+<li>Digital Signature</li>
+<li>Public / Private Key</li>
+<li>SHA-256 Asset Hash</li>
+<li>Cryptographic Fingerprint</li>
+<li>Timestamp Authority</li>
+<li>Public Verification Endpoint</li>
+<li>Distributed Ledger</li>
+</ul>
+
+<p>
+Dengan mekanisme tersebut, G-Loop Stamp dapat berkembang dari sistem identifikasi menjadi sistem verifikasi provenance aset yang lebih kuat.
+</p>
+
+<div class="divider"></div>
+
+<!-- EKOSISTEM -->
+
+<h2>G-Loop dalam Ekosistem Digital</h2>
+
+<p>
+G-Loop QR Stamp dapat ditempatkan sebagai salah satu lapisan dalam ekosistem digital NodeGunawan.
+QR Stamp menghubungkan aset visual dengan identitas digital, sementara halaman web, dokumentasi, digital marketing, komunitas fotografi, dan distribusi konten membentuk konteks yang lebih luas.
+</p>
+
+<p>
+Hubungan tersebut dapat digambarkan sebagai:
+</p>
+
+<pre><code>
+ASET VISUAL
+     │
+     ▼
+G-LOOP QR STAMP
+     │
+     ▼
+IDENTITAS DIGITAL
+     │
+     ├── Creator
+     ├── Node
+     ├── Stamp ID
+     ├── Timestamp
+     ├── Title
+     └── Target
+     │
+     ▼
+EKOSISTEM DIGITAL
+     │
+     ├── Dokumentasi Visual
+     ├── Digital Marketing
+     ├── Komunitas Fotografi
+     ├── Website
+     └── Distribusi Konten
+</code></pre>
+
+<div class="divider"></div>
+
+<!-- TURUNAN -->
+
+<h2>Turunan Konteks</h2>
+
+<p>
+G-Loop QR Stamp dapat dikembangkan dan dihubungkan dengan beberapa bagian ekosistem NodeGunawan:
+</p>
+
+<ul>
+
+<li>
+<a href="/g-loop-method/">
+G-Loop Method
+</a>
+</li>
+
+<li>
+<a href="/ekosistem-digital/">
+Ekosistem Digital
+</a>
+</li>
+
+<li>
+<a href="/dokumentasi-visual/">
+Dokumentasi Visual
+</a>
+</li>
+
+<li>
+<a href="/jasa-foto/">
+Jasa Foto
+</a>
+</li>
+
+<li>
+<a href="/digital-marketing/">
+Digital Marketing
+</a>
+</li>
+
+<li>
+<a href="/komunitas-fotografi/">
+Komunitas Fotografi
+</a>
+</li>
+
+</ul>
+
+<div class="divider"></div>
+
+<!-- NODE -->
+
+<h2>Kembali ke Node</h2>
+
+<p>
+<a href="/">
+NodeGunawan
+</a>
+merupakan pusat keterhubungan berbagai eksperimen, dokumentasi, informasi, dan pengembangan konsep digital yang berkaitan dengan G-Loop.
+</p>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+© 2026 Gunawan Satyakusuma<br>
+#GLoop #GLoopQRStamp #DigitalEntityTrace #NodeGunawan
+</div>
+
+</div>
+
+</body>
+</html>
