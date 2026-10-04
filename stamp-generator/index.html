@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>G-Loop Stamp Generator v3 | NodeGunawan</title>
+<title>G-Loop Stamp Generator v4 | NodeGunawan</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
@@ -314,7 +313,7 @@ button:hover {
 
 <div class="card">
 
-<h1>G-Loop Stamp Generator v3</h1>
+<h1>G-Loop Stamp Generator v4</h1>
 
 <p class="subtitle">
 Digital visual stamp untuk membawa identitas, target,
@@ -465,7 +464,7 @@ mencoba membaca QR secara langsung.
 
 <div class="footer">
 
-NodeGunawan · G-Loop Digital Stamp · v3
+NodeGunawan · G-Loop Digital Stamp · v4 · Logo
 
 <br>
 
@@ -492,6 +491,68 @@ Experimental Prototype · Digital Entity Trace
 let currentURL = "";
 let currentStampID = "";
 let currentPayload = null;
+
+/* =====================================================
+   G-LOOP LOGO
+   ===================================================== */
+
+const GLOOP_LOGO_SRC = "favicon.png";
+
+const gLoopLogo = new Image();
+gLoopLogo.src = GLOOP_LOGO_SRC;
+
+const gLoopLogoReady = new Promise((resolve) => {
+    gLoopLogo.onload = () => resolve(true);
+    gLoopLogo.onerror = () => resolve(false);
+});
+
+/* Draw a small white logo plate in the QR center.
+   QR uses Error Correction H so the center branding
+   remains recoverable by QR readers. */
+function drawLogoOnCanvas(canvas) {
+
+    if (!canvas || !gLoopLogo.complete || !gLoopLogo.naturalWidth) {
+        return false;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    const size = canvas.width;
+    const logoBox = Math.round(size * 0.235);
+    const x = Math.round((size - logoBox) / 2);
+    const y = Math.round((size - logoBox) / 2);
+
+    /* White safety zone */
+    ctx.save();
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.roundRect(x, y, logoBox, logoBox, Math.round(logoBox * 0.12));
+    ctx.fill();
+
+    /* Contain logo inside the white plate */
+    const padding = Math.round(logoBox * 0.10);
+    const maxW = logoBox - padding * 2;
+    const maxH = logoBox - padding * 2;
+
+    const ratio = gLoopLogo.naturalWidth / gLoopLogo.naturalHeight;
+
+    let drawW = maxW;
+    let drawH = drawW / ratio;
+
+    if (drawH > maxH) {
+        drawH = maxH;
+        drawW = drawH * ratio;
+    }
+
+    const drawX = x + (logoBox - drawW) / 2;
+    const drawY = y + (logoBox - drawH) / 2;
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.drawImage(gLoopLogo, drawX, drawY, drawW, drawH);
+    ctx.restore();
+
+    return true;
+}
 
 
 /* =====================================================
@@ -710,7 +771,7 @@ function generateStamp() {
             timestamp,
 
         generator:
-            "G-Loop Stamp Generator v3"
+            "G-Loop Stamp Generator v4"
 
     };
 
@@ -774,11 +835,22 @@ function generateStamp() {
             colorLight:
                 "#ffffff",
 
+            /* H = highest QR error correction */
             correctLevel:
-                QRCode.CorrectLevel.M
+                QRCode.CorrectLevel.H
 
         }
     );
+
+    /* Add G-Loop logo after QR canvas is created */
+    gLoopLogoReady.then(() => {
+
+        const previewCanvas =
+            qrContainer.querySelector("canvas");
+
+        drawLogoOnCanvas(previewCanvas);
+
+    });
 
 
     /* =================================================
@@ -848,7 +920,7 @@ TIMESTAMP: ${timestamp}`;
    CREATE NEW CANVAS WITH REAL QUIET ZONE
 ===================================================== */
 
-function downloadQR() {
+async function downloadQR() {
 
     if (!currentURL) {
 
@@ -859,6 +931,8 @@ function downloadQR() {
         return;
     }
 
+    /* Ensure the logo is ready before exporting */
+    await gLoopLogoReady;
 
     const qrContainer =
         document
@@ -950,6 +1024,16 @@ function downloadQR() {
         qrSize
 
     );
+
+    /* The source preview already contains the logo.
+       This fallback guarantees the exported PNG also
+       contains it if the preview was generated before
+       the logo finished loading. */
+    if (gLoopLogo.complete && gLoopLogo.naturalWidth) {
+
+        drawLogoOnCanvas(exportCanvas);
+
+    }
 
 
     /* =================================================
