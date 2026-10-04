@@ -240,22 +240,7 @@ footer {
   color: #666666;
 }
 
-.profile-img {
-  display: block;
-  width: 180px !important;
-  height: 180px !important;
-  margin: 20px auto;
-  padding: 0 !important;
 
-  border: 2px solid #00ffff !important;
-  border-radius: 0 !important;
-
-  object-fit: cover;
-  clip-path: none !important;
-  -webkit-clip-path: none !important;
-
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-}
 
 /* =========================
    GRID SYSTEM (EKOSISTEM DIGITAL)
@@ -350,3 +335,14 @@ footer {
   border-radius: 12px;
 }
 
+/* FOTO PROFIL — KOTAK */
+.profile-img {
+  width: 180px !important;
+  height: 180px !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover;
+  border-radius: 0 !important;
+  margin: 20px auto;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
