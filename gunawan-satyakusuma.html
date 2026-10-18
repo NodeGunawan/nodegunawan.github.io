@@ -1,179 +1,533 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="canonical" href="https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html" />
+  <link rel="canonical"
+        href="https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gunawan Satyakusuma | Jasa Dokumentasi Foto Video Bandung & G-Loop</title>
 
-<title>Gunawan Satyakusuma – Dokumentasi Visual, Digital Marketing, dan G-Loop</title>
+  <meta name="description"
+        content="Gunawan Satyakusuma menyediakan jasa dokumentasi foto dan video di Bandung untuk event, perusahaan, komunitas, dan UMKM, serta mengembangkan G-Loop Visibility Advisory untuk visibilitas digital.">
 
-<meta name="description" content="Gunawan Satyakusuma adalah praktisi dokumentasi visual dan digital marketing yang mengembangkan pendekatan G-Loop Visibility Advisory berbasis Context Gravity dalam ekosistem digital.">
+  <meta name="robots" content="index, follow">
 
-<meta name="robots" content="index, follow">
+  <!-- Open Graph -->
+  <meta property="og:title"
+        content="Gunawan Satyakusuma | Jasa Dokumentasi Foto Video Bandung">
+  <meta property="og:description"
+        content="Dokumentasi foto, video, event, dan kebutuhan bisnis di Bandung, terhubung dengan strategi digital dan G-Loop Visibility Advisory.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url"
+        content="https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html">
+  <meta property="og:image"
+        content="https://gunawansatyakusuma.my.id/img/profile.jpg">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Gunawan Satyakusuma – Dokumentasi Visual & G-Loop">
-<meta property="og:description" content="Praktisi dokumentasi visual dan digital marketing dengan pendekatan G-Loop Visibility Advisory berbasis Context Gravity.">
-<meta property="og:type" content="profile">
-<meta property="og:url" content="https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html">
-<meta property="og:image" content="https://gunawansatyakusuma.my.id/img/profile.jpg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+        content="Gunawan Satyakusuma | Dokumentasi Visual Bandung">
+  <meta name="twitter:description"
+        content="Jasa dokumentasi foto video, digital marketing, dan G-Loop Visibility Advisory.">
+  <meta name="twitter:image"
+        content="https://gunawansatyakusuma.my.id/profile.jpg">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gunawan Satyakusuma">
-<meta name="twitter:description" content="Dokumentasi Visual, Digital Marketing, dan G-Loop Visibility Advisory.">
-<meta name="twitter:image" content="https://gunawansatyakusuma.my.id/img/profile.jpg">
+  <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
+  <!-- Responsive additions -->
+  <style>
+    .content-section {
+      margin: 36px 0;
+    }
 
-<!-- Schema JSON-LD Person -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Gunawan Satyakusuma",
-  "url": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html",
-  "image": "https://gunawansatyakusuma.my.id/img/profile.jpg",
-  "description": "Praktisi dokumentasi visual dan digital marketing yang mengembangkan pendekatan G-Loop Visibility Advisory berbasis Context Gravity.",
-  "jobTitle": "Visual Documentation Practitioner & Digital Marketing Strategist",
-  "knowsAbout": [
-    "Dokumentasi Visual",
-    "Fotografi",
-    "Videografi",
-    "Digital Marketing",
-    "Context Gravity",
-    "G-Loop Visibility Advisory"
-  ],
-  "sameAs": [
-    "https://www.kompasiana.com/gunawansatyakusuma0121",
-    "https://medium.com/@gunawan.satyakusumah",
-    "https://www.linkedin.com/in/gunawan-satyakusuma-25549537a",
-    "https://www.instagram.com/satya_kusumah",
-    "https://www.youtube.com/@GunawanSatyakusuma",
-    "https://www.facebook.com/gunawansatyakusumah",
-    "https://maps.app.goo.gl/24jFimxUmDVitHwj7",
-    "https://www.google.com/maps/contrib/101596477192944298689",
-    "https://independent.academia.edu/GunawanSatyakusuma",
-    "https://doi.org/10.5281/zenodo.18359114",
-    "https://www.wikidata.org/wiki/Q137592250",
-    "https://orcid.org/0009-0001-4188-8101",
-    "https://gloop.my.id",
-    "https://gunawansatyakusuma.my.id"
-  ]
-}
-</script>
+    .service-list {
+      padding-left: 22px;
+      line-height: 1.8;
+    }
 
-<!-- G-Loop Digital Stamp -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "DigitalDocument",
-  "name": "Powered by G-Loop Visibility",
-  "creator": {
+    .map-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      min-height: 280px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .map-container iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      border: 0;
+    }
+
+    .service-cta {
+      display: inline-block;
+      margin: 8px 8px 8px 0;
+      padding: 10px 16px;
+      border: 1px solid currentColor;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .profile-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 600px) {
+      .map-container {
+        aspect-ratio: 3 / 4;
+        min-height: 320px;
+      }
+
+      .map-container iframe {
+        min-height: 320px;
+      }
+    }
+  </style>
+
+  <!-- Schema.org: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html#person",
     "name": "Gunawan Satyakusuma",
-    "url": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html"
-  },
-  "identifier": "GLOOP-B36104BC6D",
-  "url": "https://gloop.my.id",
-  "dateCreated": "2026-10-04T04:28:58.573Z",
-  "description": "Protocol: G-LOOP | Version: 3.0 | Generator: G-Loop Stamp Generator v4"
-}
-</script>
+    "url": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html",
+    "image": "https://gunawansatyakusuma.my.id/img/profile.jpg",
+    "description": "Praktisi dokumentasi visual dan digital marketing yang mengembangkan pendekatan G-Loop Visibility Advisory berbasis Context Gravity.",
+    "jobTitle": [
+      "Visual Documentation Practitioner",
+      "Digital Marketing Strategist"
+    ],
+    "knowsAbout": [
+      "Dokumentasi Visual",
+      "Fotografi",
+      "Videografi",
+      "Dokumentasi Event",
+      "Dokumentasi Perusahaan",
+      "Dokumentasi UMKM",
+      "Digital Marketing",
+      "G-Loop Visibility Advisory",
+      "Context Gravity"
+    ],
+    "worksFor": {
+      "@id": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html#documentation-service"
+    },
+    "sameAs": [
+      "https://www.kompasiana.com/gunawansatyakusuma0121",
+      "https://medium.com/@gunawan.satyakusumah",
+      "https://www.linkedin.com/in/gunawan-satyakusuma-25549537a",
+      "https://www.instagram.com/satya_kusumah",
+      "https://www.youtube.com/@GunawanSatyakusuma",
+      "https://www.facebook.com/gunawansatyakusumah",
+      "https://maps.app.goo.gl/24jFimxUmDVitHwj7",
+      "https://www.google.com/maps/contrib/101596477192944298689",
+      "https://independent.academia.edu/GunawanSatyakusuma",
+      "https://doi.org/10.5281/zenodo.18359114",
+      "https://www.wikidata.org/wiki/Q137592250",
+      "https://orcid.org/0009-0001-4188-8101",
+      "https://gloop.my.id",
+      "https://gunawansatyakusuma.my.id"
+    ]
+  }
+  </script>
+
+  <!-- Schema.org: Professional Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html#documentation-service",
+    "name": "Gunawan Satyakusuma | Jasa Dokumentasi & Foto Video Bandung",
+    "url": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html",
+    "image": "https://gunawansatyakusuma.my.id/profile.jpg",
+    "description": "Jasa dokumentasi foto dan video di Bandung untuk event, perusahaan, komunitas, kegiatan komersial, dan UMKM. Dokumentasi dapat dikembangkan menjadi konten untuk kebutuhan publikasi dan jejak digital.",
+    "provider": {
+      "@id": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html#person"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Bandung",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Jawa Barat, Indonesia"
+      }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Layanan Dokumentasi Visual",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Jasa Fotografi Event",
+            "description": "Dokumentasi foto untuk acara perusahaan, seminar, gathering, pelantikan, dan kegiatan komunitas."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Jasa Videografi Event",
+            "description": "Dokumentasi video kegiatan, acara, dan kebutuhan publikasi."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Dokumentasi UMKM dan Brand",
+            "description": "Dokumentasi visual produk, aktivitas usaha, tempat, dan kegiatan brand untuk kebutuhan konten digital."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Dokumentasi Perusahaan dan Korporat",
+            "description": "Dokumentasi foto dan video untuk kegiatan internal, acara resmi, dan kebutuhan komunikasi perusahaan."
+          }
+        }
+      ]
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Gunawan+Satyakusuma+Jasa+Dokumentasi+Foto+Video+Bandung"
+  }
+  </script>
+
+  <!-- Schema.org: G-Loop Digital Stamp -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DigitalDocument",
+    "@id": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html#gloop-stamp",
+    "name": "Powered by G-Loop Visibility",
+    "creator": {
+      "@id": "https://gunawansatyakusuma.my.id/gunawan-satyakusuma.html#person"
+    },
+    "identifier": "GLOOP-B36104BC6D",
+    "url": "https://gloop.my.id",
+    "dateCreated": "2026-10-04T04:28:58.573Z",
+    "description": "Protocol: G-LOOP | Version: 3.0 | Generator: G-Loop Stamp Generator v4"
+  }
+  </script>
 </head>
 
 <body>
 
-<nav>
+  <nav aria-label="Navigasi utama">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-</nav>
+  </nav>
 
-<div>
+  <main>
 
-  <h1>Gunawan Satyakusuma</h1>
-  <img src="profile.jpg" alt="Gunawan Satyakusuma" class="profile-img">
-  <p>
-    Praktisi Dokumentasi Visual & Digital Marketing<br>
-    Pengembang <strong>G-Loop Visibility Advisory</strong>
-  </p>
+    <!-- PROFIL -->
+    <header class="content-section">
+      <h1>Gunawan Satyakusuma</h1>
 
-  <p>
-    Aktivitas berjalan setiap hari.<br>
-    <strong>Tapi tidak semua aktivitas menjadi terlihat, diingat, dan dipercaya.</strong>
-  </p>
+      <img
+        src="profile.jpg"
+        alt="Gunawan Satyakusuma, praktisi dokumentasi visual dan digital marketing di Bandung"
+        class="profile-img"
+      >
 
-  <h2>Konteks Aktivitas</h2>
-  <ul>
-    <li>Dokumentasi foto dan video untuk kebutuhan komersial</li>
-    <li>Pengembangan strategi digital marketing berbasis distribusi</li>
-    <li>Pendampingan visibilitas melalui G-Loop Visibility Advisory</li>
-    <li>Keterlibatan dalam komunitas fotografi (N2SP)</li>
-  </ul>
+      <p>
+        Praktisi Dokumentasi Visual dan Digital Marketing di Bandung.
+        Pengembang <strong>G-Loop Visibility Advisory</strong>.
+      </p>
 
-  <h2>Pendekatan yang Digunakan</h2>
-  <p>
-    Gunawan Satyakusuma mengembangkan pendekatan berbasis Context Gravity,
-    yaitu bagaimana sebuah entitas membangun keterbacaan melalui distribusi konteks
-    yang konsisten di berbagai platform.
-  </p>
+      <p>
+        Aktivitas berjalan setiap hari.
+        <strong>Tetapi tidak semua aktivitas menjadi terlihat,
+        diingat, dan dipercaya.</strong>
+      </p>
+    </header>
 
-  <p>
-    Pendekatan ini tidak bergantung pada satu kanal,
-    tetapi pada keterhubungan antar aktivitas, dokumentasi, dan narasi.
-  </p>
+    <!-- JASA DOKUMENTASI -->
+    <section class="content-section" id="jasa-dokumentasi">
+      <h2>Jasa Dokumentasi Foto dan Video Bandung</h2>
 
-  <h2>G-Loop Visibility Advisory</h2>
-  <p>
-    G-Loop Visibility Advisory adalah bentuk praktik dari pendekatan tersebut,
-    yang membantu aktivitas nyata menjadi jejak digital yang terbaca dan bermakna.
-  </p>
+      <p>
+        Gunawan Satyakusuma menyediakan layanan dokumentasi visual
+        untuk perusahaan, penyelenggara acara, komunitas, brand,
+        dan pelaku UMKM di Bandung serta wilayah lain sesuai kebutuhan.
+      </p>
 
-  <ul>
-    <li>Berbasis pengalaman, bukan teori semata</li>
-    <li>Fokus pada proses, bukan hasil instan</li>
-    <li>Menghubungkan aktivitas dengan visibilitas digital</li>
-  </ul>
+      <p>
+        Dokumentasi tidak hanya berfungsi untuk merekam sebuah kegiatan.
+        Foto dan video juga dapat menjadi materi publikasi, arsip,
+        komunikasi brand, dan rekam aktivitas yang dapat digunakan
+        kembali setelah kegiatan selesai.
+      </p>
 
-  <h2>Ekosistem Digital</h2>
-  <ul>
-    <li><a href="https://gunawansatyakusuma.my.id/">Website utama</a></li>
-    <li><a href="https://gloop.my.id/">G-Loop Visibility Advisory</a></li>
-    <li><a href="https://n2sp-id.github.io/">N2SP Komunitas Fotografi</a></li>
-  </ul>
+      <h3>Layanan Dokumentasi</h3>
 
-  <h2>Posisi dan Peran</h2>
+      <ul class="service-list">
+        <li>
+          <strong>Fotografi event:</strong>
+          seminar, workshop, gathering, pelantikan, konferensi,
+          dan acara perusahaan.
+        </li>
+        <li>
+          <strong>Videografi event:</strong>
+          rekaman kegiatan, video highlight, dan materi video publikasi.
+        </li>
+        <li>
+          <strong>Dokumentasi perusahaan:</strong>
+          kegiatan korporat, acara resmi, aktivitas tim,
+          dan kebutuhan komunikasi perusahaan.
+        </li>
+        <li>
+          <strong>Dokumentasi UMKM dan brand:</strong>
+          produk, tempat usaha, aktivitas operasional,
+          kegiatan promosi, dan kolaborasi.
+        </li>
+        <li>
+          <strong>Dokumentasi komunitas:</strong>
+          kegiatan komunitas, program sosial, workshop,
+          dan aktivitas kolaboratif.
+        </li>
+        <li>
+          <strong>Dokumentasi foto dan video udara:</strong>
+          pengambilan gambar menggunakan drone untuk kebutuhan
+          yang sesuai dengan kondisi lokasi dan perizinan.
+        </li>
+      </ul>
 
-  <blockquote>
-    Visibilitas bukan dibangun dari satu konten,
-    tetapi dari pola yang terus berulang dan saling menguatkan.
-  </blockquote>
+      <h3>Dokumentasi yang Terhubung dengan Jejak Digital</h3>
 
-  <p>
-    Dalam konteks ini, Gunawan Satyakusuma berperan sebagai praktisi
-    yang menggabungkan dokumentasi visual dengan strategi distribusi digital,
-    untuk membangun kehadiran yang berkelanjutan di ruang digital.
-  </p>
+      <p>
+        Setiap kegiatan memiliki konteks: siapa yang terlibat,
+        apa yang dilakukan, di mana kegiatan berlangsung,
+        dan apa yang dihasilkan.
+      </p>
 
-  <h2>Referensi</h2>
-  <ul>
-    <li><a href="about.html">Tentang Gunawan Satyakusuma</a></li>
-    <li><a href="index.html">Halaman utama</a></li>
-  </ul>
+      <p>
+        Melalui dokumentasi yang terencana, foto dan video dapat
+        diintegrasikan dengan caption, artikel, media sosial,
+        serta kanal digital yang relevan. Pendekatan ini membantu
+        aktivitas nyata memiliki rekam publikasi yang lebih terstruktur.
+      </p>
 
- <img src="/assets/images/GLOOP-B36104BC6D.webp" alt="Node Gunawan" class="profile-img">
-  
+      <p>
+        Untuk kebutuhan tersebut, dokumentasi visual dapat dipadukan
+        dengan pendekatan <strong>G-Loop Visibility Advisory</strong>.
+        Keduanya merupakan layanan yang saling melengkapi,
+        tetapi memiliki ruang lingkup pekerjaan yang berbeda.
+      </p>
+
+      <p>
+        <a
+          class="service-cta"
+          href="https://www.google.com/maps/search/?api=1&query=Gunawan+Satyakusuma+Jasa+Dokumentasi+Foto+Video+Bandung"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Lihat di Google Maps
+        </a>
+
+        <a class="service-cta" href="https://gloop.my.id/">
+          Pelajari G-Loop Visibility
+        </a>
+      </p>
+    </section>
+
+    <!-- GOOGLE MAPS -->
+    <section class="content-section" id="lokasi">
+      <h2>Lokasi Jasa Dokumentasi Bandung</h2>
+
+      <p>
+        Temukan profil Gunawan Satyakusuma melalui Google Maps
+        untuk melihat informasi bisnis dan lokasi yang tercantum
+        pada Google.
+      </p>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.5854744562967!2d107.61790827454033!3d-6.879114467309867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6fd75bd0923%3A0x449ca43cf6b0866e!2sGunawan%20Satyakusuma%20%7C%20Jasa%20Dokumentasi%20%26%20Foto%20Video%20Bandung!5e1!3m2!1sid!2sid!4v1792316150562!5m2!1sid!2sid"
+          title="Peta Google Maps Gunawan Satyakusuma, Jasa Dokumentasi Foto Video Bandung"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p>
+        <a
+          href="https://maps.app.goo.gl/24jFimxUmDVitHwj7"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Buka profil di Google Maps
+        </a>
+      </p>
+    </section>
+
+    <!-- KONTEKS AKTIVITAS -->
+    <section class="content-section">
+      <h2>Konteks Aktivitas</h2>
+
+      <ul>
+        <li>Dokumentasi foto dan video untuk kebutuhan komersial.</li>
+        <li>Pengembangan strategi digital marketing berbasis distribusi.</li>
+        <li>Pendampingan visibilitas melalui G-Loop Visibility Advisory.</li>
+        <li>Keterlibatan dalam komunitas fotografi N2SP.</li>
+      </ul>
+    </section>
+
+    <!-- PENDEKATAN -->
+    <section class="content-section">
+      <h2>Pendekatan yang Digunakan</h2>
+
+      <p>
+        Gunawan Satyakusuma mengembangkan pendekatan berbasis
+        <strong>Context Gravity</strong>, yaitu cara memandang
+        keterhubungan antara identitas, aktivitas, dokumentasi,
+        dan narasi dalam membentuk konteks sebuah entitas di ruang digital.
+      </p>
+
+      <p>
+        Pendekatan ini tidak bergantung pada satu kanal,
+        tetapi memperhatikan keterhubungan antara aktivitas nyata,
+        dokumentasi visual, dan distribusi informasi di berbagai platform.
+      </p>
+    </section>
+
+    <!-- G-LOOP -->
+    <section class="content-section" id="gloop-visibility">
+      <h2>G-Loop Visibility Advisory</h2>
+
+      <p>
+        G-Loop Visibility Advisory merupakan pendekatan pendampingan
+        visibilitas digital yang dikembangkan untuk membantu bisnis,
+        brand, dan entitas lain menyusun jejak aktivitas yang lebih
+        konsisten dan mudah dipahami.
+      </p>
+
+      <ul>
+        <li>Berangkat dari aktivitas dan konteks nyata.</li>
+        <li>Menghubungkan dokumentasi dengan publikasi digital.</li>
+        <li>Memperhatikan konsistensi identitas dan narasi.</li>
+        <li>Berfokus pada proses jangka panjang, bukan klaim hasil instan.</li>
+      </ul>
+
+      <p>
+        Informasi lebih lanjut tersedia di
+        <a href="https://gloop.my.id/">G-Loop Visibility Advisory</a>.
+      </p>
+    </section>
+
+    <!-- EKOSISTEM DIGITAL -->
+    <section class="content-section">
+      <h2>Ekosistem Digital</h2>
+
+      <ul>
+        <li>
+          <a href="https://gunawansatyakusuma.my.id/">
+            Website utama Gunawan Satyakusuma
+          </a>
+        </li>
+        <li>
+          <a href="https://gloop.my.id/">
+            G-Loop Visibility Advisory
+          </a>
+        </li>
+        <li>
+          <a href="https://n2sp-id.github.io/">
+            N2SP Komunitas Fotografi
+          </a>
+        </li>
+        <li>
+          <a href="https://nodegunawan.github.io/">
+            NodeGunawan — Dokumentasi dan Ekosistem Digital
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- POSISI DAN PERAN -->
+    <section class="content-section">
+      <h2>Posisi dan Peran</h2>
+
+      <blockquote>
+        Visibilitas bukan dibangun dari satu konten,
+        tetapi dari pola yang terus berulang dan saling menguatkan.
+      </blockquote>
+
+      <p>
+        Gunawan Satyakusuma menggabungkan praktik dokumentasi visual
+        dengan strategi distribusi digital. Dokumentasi merekam
+        aktivitas, sedangkan strategi digital membantu menyusun
+        konteks dan publikasi dari aktivitas tersebut.
+      </p>
+
+      <p>
+        Keduanya dapat digunakan secara terpisah maupun diintegrasikan,
+        sesuai kebutuhan dokumentasi dan komunikasi digital klien.
+      </p>
+    </section>
+
+    <!-- REFERENSI -->
+    <section class="content-section">
+      <h2>Referensi</h2>
+
+      <ul>
+        <li><a href="about.html">Tentang Gunawan Satyakusuma</a></li>
+        <li><a href="index.html">Halaman utama</a></li>
+        <li>
+          <a href="https://www.kompasiana.com/gunawansatyakusuma0121">
+            Artikel di Kompasiana
+          </a>
+        </li>
+        <li>
+          <a href="https://medium.com/@gunawan.satyakusumah">
+            Publikasi di Medium
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- G-LOOP STAMP -->
+    <section class="content-section">
+      <h2>Identitas Digital G-Loop</h2>
+
+      <img
+        src="/assets/images/GLOOP-B36104BC6D.webp"
+        alt="G-Loop Digital Stamp — GLOOP-B36104BC6D"
+        class="profile-img"
+        loading="lazy"
+      >
+
+      <p>
+        Identitas stamp: <strong>GLOOP-B36104BC6D</strong>
+      </p>
+
+      <p>
+        Bagian dari dokumentasi identitas digital dalam ekosistem G-Loop.
+      </p>
+    </section>
+
+  </main>
+
   <footer>
     <p>
       © 2026 Gunawan Satyakusuma<br>
-      Dokumentasi Visual · Digital Marketing · G-Loop<br>
-      #GunawanSatyakusuma #GLoop #ContextGravity
+      Jasa Dokumentasi Foto Video Bandung · Digital Marketing · G-Loop
+    </p>
+
+    <p>
+      #GunawanSatyakusuma #DokumentasiVisual #DokumentasiBandung
+      #GLoop #ContextGravity
     </p>
   </footer>
 
-</div>
-
 </body>
 </html>
+
